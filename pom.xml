@@ -8,15 +8,14 @@
         <version>2.1.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>no.nav.familie.dokgen</groupId>
+    <groupId>no.nav.dokgen</groupId>
     <artifactId>dokgen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dokgen</name>
-    <description>Dokumentgenerator for team Familie i NAV IT</description>
+    <description>A simple document generator to merge fields with markdown to create pdf or HTML documents.</description>
 
     <properties>
         <java.version>11</java.version>
-        <felles.version>1.0_20191106113227_c2ad869</felles.version>
         <handlebar.version>4.1.2</handlebar.version>
     </properties>
 
@@ -142,12 +141,6 @@
         </dependency>
 
         <dependency>
-            <groupId>no.nav.familie.felles</groupId>
-            <artifactId>log</artifactId>
-            <version>${felles.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.openhtmltopdf</groupId>
             <artifactId>openhtmltopdf-svg-support</artifactId>
             <version>1.0.1</version>
@@ -165,6 +158,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>5.2</version>
         </dependency>
 
     </dependencies>
@@ -189,18 +188,5 @@
                 <version>3.1.0</version>
             </plugin>
         </plugins>
-        <!--
-                <resources>
-                    <resource>
-                        <directory>src/main/resources</directory>
-                    </resource>
-
-                    <resource>
-                        <directory>target/classes/templates</directory>
-                        <targetPath>templates</targetPath>
-                    </resource>
-
-        </resources>
--->
     </build>
 </project>
