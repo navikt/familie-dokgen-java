@@ -338,6 +338,7 @@ class TemplateService @Autowired internal constructor(
         handlebars.registerHelper("divide", CustomHelpers.DivideHelper())
         handlebars.registerHelper("format-kroner", CustomHelpers.FormatKronerHelper())
         handlebars.registerHelper("trim-decimal", CustomHelpers.TrimDecimalHelper())
+        handlebars.registerHelper("break-lines", CustomHelpers.BreakLineHelper())
         handlebars.registerHelpers(StringHelpers::class.java)
         this.documentGeneratorService = documentGeneratorService
         this.jsonService = jsonService

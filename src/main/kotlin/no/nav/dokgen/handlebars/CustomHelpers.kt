@@ -1,6 +1,7 @@
 package no.nav.dokgen.handlebars
 
 import com.github.jknack.handlebars.Context
+import com.github.jknack.handlebars.Handlebars
 import com.github.jknack.handlebars.Helper
 import com.github.jknack.handlebars.Options
 import java.io.IOException
@@ -167,6 +168,22 @@ interface CustomHelpers {
     class TrimDecimalHelper : Helper<Double> {
         override fun apply(decimal: Double, options: Options?): Any {
             return BigDecimal.valueOf(decimal).stripTrailingZeros().toPlainString()
+        }
+    }
+
+    /**
+     * Replaces various newlines with <br> tags
+     */
+
+    class BreakLineHelper : Helper<String> {
+        override fun apply(text : String, options: Options) : String {
+            val sanitizedText = Handlebars.Utils.escapeExpression(text)
+            val withLineBreak = sanitizedText.toString()
+                .replace("\\r\\n", "<br/>")
+                .replace("\\n", "<br/>")
+                .replace("\r\n", "<br/>")
+                .replace("\n", "<br/>")
+            return Handlebars.SafeString(withLineBreak).toString()
         }
     }
 }
